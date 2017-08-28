@@ -4,6 +4,7 @@ import { fetchCategories } from '../../../actions/categories'
 import { fetchPosts } from '../../../actions/posts'
 import CategoryList from '../../molecules/CategoryList'
 import PostList from '../../molecules/PostList'
+import { Link } from 'react-router-dom'
 
 class Default extends Component {
 
@@ -13,11 +14,13 @@ class Default extends Component {
   }
 
   render() {
-    console.log('!!!!!! ', this.props.posts)
     return (
       <div className='app'>
         <CategoryList categories={this.props.categories} />
         <PostList posts={this.props.posts} />
+        <div>
+          <Link to='/'>Add a new post</Link>
+        </div>
       </div>
     )
   }
@@ -26,7 +29,7 @@ class Default extends Component {
 function mapStateToProps({ categories, posts }) {
   return {
     categories,
-    posts
+    posts: posts.sort((a,b) => (b.voteScore - a.voteScore))
   }
 }
 

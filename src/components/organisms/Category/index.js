@@ -1,29 +1,9 @@
-import React, { Component } from 'react'
-// import { connect } from 'react-redux'
-// import { fetchCategories } from '../../../actions/categories'
-// import { fetchPosts } from '../../../actions/posts'
+import React from 'react'
 
-class Category extends Component {
-
-  // componentDidMount() {
-  //   this.props.dispatch(fetchCategories())
-  //   this.props.dispatch(fetchPosts())
-  // }
-
-  render() {
-    return (
-      <div>
-        CATEGORY
-      </div>
-    )
-  }
-}
-
-// function mapStateToProps({ categories, posts }) {
-//   return {
-//     categories,
-//     posts
-//   }
-// }
+const Category = ({ match }) => (
+  <div>
+    {match.params.id}
+  </div>
+)
 
 export default Category
