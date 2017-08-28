@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchCategories } from '../../../actions/categories'
 import { fetchPosts } from '../../../actions/posts'
 import CategoryList from '../../molecules/CategoryList'
+import PostList from '../../molecules/PostList'
 
 class Default extends Component {
 
@@ -12,9 +13,11 @@ class Default extends Component {
   }
 
   render() {
+    console.log('!!!!!! ', this.props.posts)
     return (
       <div className='app'>
-        ROOT
+        <CategoryList categories={this.props.categories} />
+        <PostList posts={this.props.posts} />
       </div>
     )
   }
