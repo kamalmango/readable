@@ -2,6 +2,7 @@ import * as api from '../utils/api'
 
 export const RECEIVE_POSTS = "RECEIVE_POSTS"
 export const CHANGE_POSTS_ORDER = "CHANGE_POSTS_ORDER"
+export const FILTER_POSTS_BY_CATEGORY = "FILTER_POSTS_BY_CATEGORY"
 
 export const receivePosts = items => ({
   type: RECEIVE_POSTS,
@@ -20,4 +21,9 @@ export const fetchPosts = () => dispatch => (
 export const changePostsOrder = order => ({
 	type: CHANGE_POSTS_ORDER,
 	order
+})
+
+export const filterPostsByCategory = category => ({
+  type: FILTER_POSTS_BY_CATEGORY,
+  category
 })

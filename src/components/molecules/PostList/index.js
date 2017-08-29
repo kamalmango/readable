@@ -28,7 +28,8 @@ function mapStateToProps({posts}) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    changePostsOrder: (data) => dispatch(changePostsOrder(data)),
+    changePostsOrder: (data) => dispatch(changePostsOrder(data))
   }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(PostList)
