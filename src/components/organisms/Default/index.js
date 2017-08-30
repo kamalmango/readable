@@ -30,6 +30,7 @@ function mapStateToProps({ categories, posts }) {
   return {
     categories,
     posts: posts.sort((a,b) => (b.voteScore - a.voteScore))
+    // posts
   }
 }
 
