@@ -17,7 +17,7 @@ class Default extends Component {
     return (
       <div className='app'>
         <CategoryList categories={this.props.categories} />
-        <PostList posts={this.props.posts} />
+        <PostList  />
         <div>
           <Link to='/'>Add a new post</Link>
         </div>
@@ -29,7 +29,7 @@ class Default extends Component {
 function mapStateToProps({ categories, posts }) {
   return {
     categories,
-    posts: posts.sort((a,b) => (b.voteScore - a.voteScore))
+    // posts: posts.sort((a,b) => (b.voteScore - a.voteScore))
     // posts
   }
 }

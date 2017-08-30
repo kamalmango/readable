@@ -8,27 +8,24 @@ function posts(state = [], action) {
 
   switch (action.type) {
     case RECEIVE_POSTS : 
-      return posts
+      return posts.sort((a,b) => (b.voteScore - a.voteScore))
     case CHANGE_POSTS_ORDER :
-     	return state.sort((a,b) => (b.order - a.order))
+      let newState = [...state]
+     	return newState.sort((a,b) => (b[order] - a[order]))
     case FILTER_POSTS_BY_CATEGORY : 
       return state.filter(item => item.category === category)
     case ADD_TO_POST_VOTESCORE : 
-      // return state.map(post => 
-      // 	(post.id === id)
-      // 		? {...post, voteScore: post.voteScore++}
-      // 		: post
-      // )
-      return state.map(post => {
-      	if (post.id === id) {
-      		console.warn('!!! ', post.voteScore)
-      		return {...post, voteScore: post.voteScore+1}
-      	} else {
-      		return post
-      	}
-      })
+      return state.map(post => 
+      	(post.id === id)
+      		? {...post, voteScore: post.voteScore+1}
+      		: post
+      )
     case SUBTRACT_FROM_POST_VOTESCORE : 
-    	return state
+    	return state.map(post => 
+        (post.id === id)
+          ? {...post, voteScore: post.voteScore-1}
+          : post
+      )
     default :
       return state
   }
