@@ -22,7 +22,7 @@ function posts(state = [], action) {
       return state.map(post => {
       	if (post.id === id) {
       		console.warn('!!! ', post.voteScore)
-      		return {...post, voteScore: post.voteScore++}
+      		return {...post, voteScore: post.voteScore+1}
       	} else {
       		return post
       	}
