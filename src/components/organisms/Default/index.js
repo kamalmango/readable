@@ -26,12 +26,4 @@ class Default extends Component {
   }
 }
 
-function mapStateToProps({ categories, posts }) {
-  return {
-    categories,
-    // posts: posts.sort((a,b) => (b.voteScore - a.voteScore))
-    // posts
-  }
-}
-
-export default connect(mapStateToProps)(Default)
+export default connect()(Default)

@@ -4,18 +4,9 @@ import { connect } from 'react-redux'
 import { filterPostsByCategory } from '../../../actions/posts'
 import CategoryList from '../../molecules/CategoryList'
 
-// const Category = ({ match }) => (
-//   <div>
-//     <h3>{match.params.id}</h3>
-//     <div>
-//       <PostList />
-//     </div>
-//   </div>
-// )
-
 class Category extends Component {
   componentDidMount() {
-    this.props.filterPostsByCategory(this.props.match.params.id)
+    this.props.dispatch(filterPostsByCategory(this.props.match.params.id))
   }
 
   render() {
@@ -37,10 +28,4 @@ function mapStateToProps({categories}) {
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    filterPostsByCategory: (data) => dispatch(filterPostsByCategory(data))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Category)
+export default connect(mapStateToProps)(Category)

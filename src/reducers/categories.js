@@ -6,8 +6,8 @@ function categories(state = [], action) {
   switch (action.type) {
     case RECEIVE_CATEGORIES : 
       return categories
-      default :
-        return state
+    default :
+      return state
   }
 }
 
