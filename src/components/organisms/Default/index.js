@@ -17,7 +17,7 @@ class Default extends Component {
     return (
       <div className='app'>
         <CategoryList categories={this.props.categories} />
-        <PostList  />
+        <PostList posts={this.props.posts} />
         <div>
           <Link to='/'>Add a new post</Link>
         </div>
@@ -26,4 +26,11 @@ class Default extends Component {
   }
 }
 
-export default connect()(Default)
+function mapStateToProps({ categories, posts }) {
+  return {
+    categories, 
+    posts
+  }
+}
+
+export default connect(mapStateToProps)(Default)

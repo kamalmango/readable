@@ -1,10 +1,9 @@
 import { RECEIVE_POSTS, CHANGE_POSTS_ORDER, 
-				 FILTER_POSTS_BY_CATEGORY,
 				 ADD_TO_POST_VOTESCORE,
 				 SUBTRACT_FROM_POST_VOTESCORE } from '../actions/posts'
 
 function posts(state = [], action) {
-  const { posts, order, category, id } = action
+  const { posts, order, id } = action
 
   switch (action.type) {
     case RECEIVE_POSTS : 
@@ -12,8 +11,6 @@ function posts(state = [], action) {
     case CHANGE_POSTS_ORDER :
       let newState = [...state]
      	return newState.sort((a,b) => (b[order] - a[order]))
-    case FILTER_POSTS_BY_CATEGORY : 
-      return state.filter(item => item.category === category)
     case ADD_TO_POST_VOTESCORE : 
       return state.map(post => 
       	(post.id === id)

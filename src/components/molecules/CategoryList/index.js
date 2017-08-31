@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 const CategoryList = (props) => (
@@ -15,10 +14,4 @@ const CategoryList = (props) => (
   </div>
 )
 
-function mapStateToProps({ categories }) {
-  return {
-    categories
-  }
-}
-
-export default connect(mapStateToProps)(CategoryList)
+export default CategoryList

@@ -7,3 +7,7 @@ export function fetchCategories() {
 export function fetchPosts() {
   return fetch(`${api}posts`, { headers: { 'Authorization': 'whatever-you-want' }})
 }
+
+export function fetchComments(id) {
+  return fetch(`${api}posts/${id}/comments`, { headers: { 'Authorization': 'whatever-you-want' }})
+}
