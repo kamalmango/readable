@@ -23,13 +23,13 @@ class Post extends Component {
   }
 
   render() {
-    const { post } = this.props
-    
+    const { post, comments } = this.props
     return (
       <li>
         <div>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
+          <p>{comments[post.id] && comments[post.id].length} comments</p>
         </div>
         <div>
           <p>vote score: {post.voteScore}</p>
@@ -41,4 +41,10 @@ class Post extends Component {
   }
 }
 
-export default connect()(Post)
+function mapStateToProps({ comments }) {
+  return {
+    comments 
+  }
+}
+
+export default connect(mapStateToProps)(Post)
