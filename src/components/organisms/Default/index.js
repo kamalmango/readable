@@ -8,11 +8,6 @@ import { Link } from 'react-router-dom'
 
 class Default extends Component {
 
-  componentDidMount() {
-    this.props.dispatch(fetchCategories())
-    this.props.dispatch(fetchPosts())
-  }
-
   render() {
     return (
       <div className='app'>

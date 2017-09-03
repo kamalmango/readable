@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addToPostVotescore, subractFromPostVotescore } from '../../../actions/posts'
 import { fetchComments } from '../../../actions/comments'
+import { Link } from 'react-router-dom'
 
 // const Post = (props) => (
 //   <li>
@@ -25,7 +26,7 @@ class Post extends Component {
   render() {
     const { post, comments } = this.props
     return (
-      <li>
+      <Link to={`/post/${post.id}`}>
         <div>
           <h3>{post.title}</h3>
           <p>{post.body}</p>
@@ -36,7 +37,7 @@ class Post extends Component {
           <p onClick={() => this.props.dispatch(addToPostVotescore(post.id))}>+</p>
           <p onClick={() => this.props.dispatch(subractFromPostVotescore(post.id))}>-</p>
         </div>
-      </li>
+      </Link>
     )
   }
 }
