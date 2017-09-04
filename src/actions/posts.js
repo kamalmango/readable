@@ -27,7 +27,7 @@ export const addToPostVotescore = id => ({
 	id
 })
 
-export const subractFromPostVotescore = id => ({
+export const subtractFromPostVotescore = id => ({
 	type: SUBTRACT_FROM_POST_VOTESCORE,
 	id
 })

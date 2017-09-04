@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import { fetchPosts } from '../../../actions/posts'
+import CommentList from '../../molecules/CommentList'
 
 class PostDetail extends Component {
   // componentDidMount() {
@@ -20,6 +21,7 @@ class PostDetail extends Component {
           <p>{post.timestamp}</p>
           <p>{post.voteScore}</p>
         </div>
+        <CommentList comments={this.props.comments} postId={post.id} />
       </div>
     )
   }

@@ -1,16 +1,30 @@
 import * as api from '../utils/api'
 
 export const RECEIVE_COMMENTS = "RECEIVE_COMMENTS"
+export const ADD_TO_COMMENT_VOTESCORE = "ADD_TO_COMMENT_VOTESCORE"
+export const SUBTRACT_FROM_COMMENT_VOTESCORE = "SUBTRACT_FROM_COMMENT_VOTESCORE"
 
-export const receiveComments = (comments, id) => ({
+export const receiveComments = (comments, postId) => ({
   type: RECEIVE_COMMENTS,
   comments,
-  id
+  postId
 })
 
-export const fetchComments = (id) => dispatch => (
+export const fetchComments = postId => dispatch => (
   api
-    .fetchComments(id)
+    .fetchComments(postId)
     .then(response => response.json())
-    .then(comments => dispatch(receiveComments(comments, id)))
+    .then(comments => dispatch(receiveComments(comments, postId)))
 )
+
+export const addToCommentVotescore = (commentId, postId) => ({
+  type: ADD_TO_COMMENT_VOTESCORE,
+  commentId, 
+  postId
+})
+
+export const subtractFromCommentVotescore = (commentId, postId) => ({
+  type: SUBTRACT_FROM_COMMENT_VOTESCORE,
+  commentId,
+  postId
+})

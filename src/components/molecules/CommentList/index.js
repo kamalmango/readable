@@ -7,7 +7,7 @@ const CommentList = (props) => (
     <h3>Comments</h3>
     <ul>
       {props.comments.map(comment => (
-        <Comment comment={comment} key{comment.id} />
+        <Comment comment={comment} key={comment.id} postId={props.postId} />
       ))}
     </ul>
   </div>

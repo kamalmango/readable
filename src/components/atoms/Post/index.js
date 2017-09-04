@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToPostVotescore, subractFromPostVotescore } from '../../../actions/posts'
+import { addToPostVotescore, subtractFromPostVotescore } from '../../../actions/posts'
 import { fetchComments } from '../../../actions/comments'
 import { Link } from 'react-router-dom'
 
@@ -35,7 +35,7 @@ class Post extends Component {
         <div>
           <p>vote score: {post.voteScore}</p>
           <p onClick={() => this.props.dispatch(addToPostVotescore(post.id))}>+</p>
-          <p onClick={() => this.props.dispatch(subractFromPostVotescore(post.id))}>-</p>
+          <p onClick={() => this.props.dispatch(subtractFromPostVotescore(post.id))}>-</p>
         </div>
       </Link>
     )
