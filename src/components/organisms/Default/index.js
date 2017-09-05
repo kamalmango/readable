@@ -14,7 +14,7 @@ class Default extends Component {
         <CategoryList categories={this.props.categories} />
         <PostList posts={this.props.posts} />
         <div>
-          <Link to='/'>Add a new post</Link>
+          <Link to='/create'>Add a new post</Link>
         </div>
       </div>
     )
