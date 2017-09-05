@@ -8,9 +8,7 @@ class PostDetail extends Component {
   //   this.props.dispatch(fetchPosts())
   // }
   render() {
-    // console.log('hellloooo ', this.props)
     const post = this.props.posts[0]
-    console.log('!!!!!!! ', this.props.comments)
     return (
       <div>
         <h1>Post Details</h1>

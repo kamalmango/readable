@@ -1,19 +1,18 @@
 import { RECEIVE_COMMENTS,
          ADD_TO_COMMENT_VOTESCORE,
-         SUBTRACT_FROM_COMMENT_VOTESCORE } from '../actions/comments'
+         SUBTRACT_FROM_COMMENT_VOTESCORE,
+         CHANGE_COMMENTS_ORDER } from '../actions/comments'
 
 function comments(state = {}, action) {
-  const { comments, postId, commentId } = action
+  const { comments, postId, commentId, order } = action
   console.log('post id first ', postId)
   switch (action.type) {
     case RECEIVE_COMMENTS :
       return {
         ...state,
-        [postId]: comments
+        [postId]: comments.sort((a,b) => (b.voteScore - a.voteScore))
       }
     case ADD_TO_COMMENT_VOTESCORE :
-      console.log('jalskdjflkdjf ', state)
-      console.log('post id ', action.postId)
       return {
         ...state,
         [postId]: state[postId].map(comment => 
@@ -30,6 +29,12 @@ function comments(state = {}, action) {
             ? {...comment, voteScore: comment.voteScore-1}
             : comment
         )
+      }
+    case CHANGE_COMMENTS_ORDER : 
+      let newState = [...state[postId]]
+      return {
+        ...state,
+        [postId]: newState.sort((a,b) => (b[order] - a[order]))
       }
     default:
       return state
