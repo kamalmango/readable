@@ -5,7 +5,6 @@ import { RECEIVE_COMMENTS,
 
 function comments(state = {}, action) {
   const { comments, postId, commentId, order } = action
-  console.log('post id first ', postId)
   switch (action.type) {
     case RECEIVE_COMMENTS :
       return {
