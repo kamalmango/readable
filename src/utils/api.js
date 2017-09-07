@@ -13,13 +13,13 @@ export function fetchComments(id) {
 }
 
 export function postPost(values) {
-  console.warn('vallluuueeeesssss', values)
   return fetch(`${api}posts`, {
     method: 'POST',
     headers: {
-      'Authorization': 'whatever-you-want'
+      'Authorization': 'whatever-you-want',
+      'Content-Type': 'application/json'
     },
-    body: values
+    body: JSON.stringify(values)
   }).then(response => response.json())
     .then(results => {
       console.log('ressssuuuullltsss ', results)
