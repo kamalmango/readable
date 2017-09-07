@@ -5,6 +5,7 @@ export const CHANGE_POSTS_ORDER = "CHANGE_POSTS_ORDER"
 export const ADD_TO_POST_VOTESCORE = "ADD_TO_POST_VOTESCORE"
 export const SUBTRACT_FROM_POST_VOTESCORE = "SUBTRACT_FROM_POST_VOTESCORE"
 export const ADD_POST = "RECEIVE_ONE_POST"
+export const DELETE_POST = "DELETE_POST"
 
 export const fetchPosts = () => dispatch => (
   api
@@ -20,6 +21,14 @@ export const postPost = values => dispatch => (
     .then(post => dispatch(addPost(post)))
 )
 
+export const deletePost = id => dispatch => (
+  api.
+    deletePost(id)
+    .then(response => response)
+    .then(results => {
+      console.warn('resultsss ', results)
+    })
+)
 
 export const receivePosts = posts => ({
   type: RECEIVE_POSTS,

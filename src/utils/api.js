@@ -22,3 +22,12 @@ export function postPost(values) {
     body: JSON.stringify(values)
   })
 }
+
+export function deletePost(id) {
+  return fetch(`${api}posts/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'whatever-you-want'
+    }
+  })
+}
