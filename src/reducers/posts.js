@@ -1,7 +1,8 @@
 import { RECEIVE_POSTS, CHANGE_POSTS_ORDER, 
 				 ADD_TO_POST_VOTESCORE,
 				 SUBTRACT_FROM_POST_VOTESCORE,
-         ADD_POST } from '../actions/posts'
+         ADD_POST,
+         DELETE_POST } from '../actions/posts'
 
 function posts(state = [], action) {
   const { posts, order, id, post } = action
@@ -28,6 +29,12 @@ function posts(state = [], action) {
       let updatedState = [...state]
       updatedState.push(post)
       return updatedState
+    case DELETE_POST : 
+      return state.map(post => 
+        (post.id === id)
+          ? {...post, deleted: true}
+          : post
+      )
     default :
       return state
   }

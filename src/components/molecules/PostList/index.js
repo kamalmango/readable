@@ -12,7 +12,7 @@ const PostList = (props) => (
     </div>
     <ul>
       {props.posts.map(post => (
-        <Post post={post} key={post.id} />
+        !post.deleted && <Post post={post} key={post.id} />
       ))}
     </ul>
   </div>

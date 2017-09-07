@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 // import { fetchPosts } from '../../../actions/posts'
 import CommentList from '../../molecules/CommentList'
 import { deletePost } from '../../../actions/posts'
+import { Link } from 'react-router-dom'
 
 class PostDetail extends Component {
   // componentDidMount() {
@@ -12,6 +13,7 @@ class PostDetail extends Component {
     const post = this.props.posts[0]
     return (
       <div>
+        <Link to='/'>Home</Link>
         <h1>Post Details</h1>
         <div>
           <h3>{post.title}</h3>
@@ -20,7 +22,7 @@ class PostDetail extends Component {
           <p>{post.timestamp}</p>
           <p>{post.voteScore}</p>
         </div>
-        <p>Edit Post</p>
+        <Link to='/create'>Edit Post</Link>
         <p onClick={() => this.props.dispatch(deletePost(post.id))}>Delete Post</p>
         <CommentList comments={this.props.comments} postId={post.id} />
       </div>

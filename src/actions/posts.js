@@ -24,10 +24,7 @@ export const postPost = values => dispatch => (
 export const deletePost = id => dispatch => (
   api.
     deletePost(id)
-    .then(response => response)
-    .then(results => {
-      console.warn('resultsss ', results)
-    })
+    .then(response => dispatch(deletePostAction(id)))
 )
 
 export const receivePosts = posts => ({
@@ -53,4 +50,9 @@ export const addToPostVotescore = id => ({
 export const subtractFromPostVotescore = id => ({
 	type: SUBTRACT_FROM_POST_VOTESCORE,
 	id
+})
+
+export const deletePostAction = id => ({
+  type: DELETE_POST,
+  id
 })

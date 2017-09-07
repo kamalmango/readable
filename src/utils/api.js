@@ -31,3 +31,14 @@ export function deletePost(id) {
     }
   })
 }
+
+export function putPost(values, id) {
+  return fetch(`${api}posts/${id}`), {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'whatever-you-want',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(values)
+  }
+}
