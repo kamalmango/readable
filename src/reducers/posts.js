@@ -1,9 +1,10 @@
 import { RECEIVE_POSTS, CHANGE_POSTS_ORDER, 
 				 ADD_TO_POST_VOTESCORE,
-				 SUBTRACT_FROM_POST_VOTESCORE } from '../actions/posts'
+				 SUBTRACT_FROM_POST_VOTESCORE,
+         ADD_POST } from '../actions/posts'
 
 function posts(state = [], action) {
-  const { posts, order, id } = action
+  const { posts, order, id, post } = action
 
   switch (action.type) {
     case RECEIVE_POSTS : 
@@ -23,6 +24,10 @@ function posts(state = [], action) {
           ? {...post, voteScore: post.voteScore-1}
           : post
       )
+    case ADD_POST : 
+      let updatedState = [...state]
+      updatedState.push(post)
+      return updatedState
     default :
       return state
   }

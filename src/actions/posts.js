@@ -4,11 +4,7 @@ export const RECEIVE_POSTS = "RECEIVE_POSTS"
 export const CHANGE_POSTS_ORDER = "CHANGE_POSTS_ORDER"
 export const ADD_TO_POST_VOTESCORE = "ADD_TO_POST_VOTESCORE"
 export const SUBTRACT_FROM_POST_VOTESCORE = "SUBTRACT_FROM_POST_VOTESCORE"
-
-export const receivePosts = posts => ({
-  type: RECEIVE_POSTS,
-  posts
-})
+export const ADD_POST = "RECEIVE_ONE_POST"
 
 export const fetchPosts = () => dispatch => (
   api
@@ -16,6 +12,24 @@ export const fetchPosts = () => dispatch => (
     .then(response => response.json())
     .then(posts =>  dispatch(receivePosts(posts)))
 )
+
+export const postPost = values => dispatch => (
+  api
+    .postPost(values)
+    .then(response => response.json())
+    .then(post => dispatch(addPost(post)))
+)
+
+
+export const receivePosts = posts => ({
+  type: RECEIVE_POSTS,
+  posts
+})
+
+export const addPost = post => ({
+  type: ADD_POST,
+  post
+})
 
 export const changePostsOrder = order => ({
 	type: CHANGE_POSTS_ORDER,
