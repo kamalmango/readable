@@ -7,6 +7,7 @@ export const SUBTRACT_FROM_POST_VOTESCORE = "SUBTRACT_FROM_POST_VOTESCORE"
 export const ADD_POST = "RECEIVE_ONE_POST"
 export const DELETE_POST = "DELETE_POST"
 export const GET_POST = "GET_POST"
+export const UPDATE_POST = "UPDATE_POST"
 
 export const fetchPosts = () => dispatch => (
   api
@@ -20,6 +21,26 @@ export const postPost = values => dispatch => (
     .postPost(values)
     .then(response => response.json())
     .then(post => dispatch(addPost(post)))
+)
+
+export const postVote = (id, vote) => dispatch => (
+  api
+    .postVote(id, vote)
+    .then(response => {
+      console.warn(vote)
+      if (vote.option === 'upVote') {
+        dispatch(addToPostVotescore(id))
+      } else {
+        dispatch(subtractFromPostVotescore(id))
+      }
+    })
+)
+
+export const putPost = (id, values) => dispatch => (
+  api
+    .putPost(id, values)
+    .then(response => response.json())
+    .then(post => dispatch(updatePost(post)))
 )
 
 export const deletePost = id => dispatch => (
@@ -42,6 +63,11 @@ export const receivePosts = posts => ({
 
 export const getPost = post => ({
   type: GET_POST,
+  post
+})
+
+export const updatePost = post => ({
+  type: UPDATE_POST,
   post
 })
 
@@ -69,3 +95,4 @@ export const deletePostAction = id => ({
   type: DELETE_POST,
   id
 })
+

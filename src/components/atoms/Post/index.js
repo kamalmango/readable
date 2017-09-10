@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToPostVotescore, subtractFromPostVotescore } from '../../../actions/posts'
+import { addToPostVotescore, subtractFromPostVotescore, postVote } from '../../../actions/posts'
 import { fetchComments } from '../../../actions/comments'
 import { Link } from 'react-router-dom'
 
@@ -19,25 +19,21 @@ import { Link } from 'react-router-dom'
 // )
 
 class Post extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchComments(this.props.post.id))
-  }
-
   render() {
     const { post, comments } = this.props
     return (
-      <Link to={`/post/${post.id}`}>
+      <div>
         <div>
-          <h3>{post.title}</h3>
+          <Link to={`/post/${post.id}`}><h3>{post.title}</h3></Link>
           <p>{post.body}</p>
           <p>{comments[post.id] && comments[post.id].length} comments</p>
         </div>
         <div>
           <p>vote score: {post.voteScore}</p>
-          <p onClick={() => this.props.dispatch(addToPostVotescore(post.id))}>+</p>
-          <p onClick={() => this.props.dispatch(subtractFromPostVotescore(post.id))}>-</p>
+          <p onClick={() => this.props.dispatch(postVote(post.id, {option: 'upVote'}))}>+</p>
+          <p onClick={() => this.props.dispatch(postVote(post.id, {option: 'downVote'}))}>-</p>
         </div>
-      </Link>
+      </div>
     )
   }
 }

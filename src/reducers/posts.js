@@ -3,7 +3,8 @@ import { RECEIVE_POSTS, CHANGE_POSTS_ORDER,
 				 SUBTRACT_FROM_POST_VOTESCORE,
          ADD_POST,
          DELETE_POST,
-         GET_POST } from '../actions/posts'
+         GET_POST,
+         UPDATE_POST } from '../actions/posts'
 
 function posts(state = [], action) {
   const { posts, order, id, post } = action
@@ -37,6 +38,12 @@ function posts(state = [], action) {
           : post
       )
     case GET_POST : 
+      return state.map(value => 
+        (value.id === post.id)
+          ? {...post}
+          : value
+      )
+    case UPDATE_POST : 
       return state.map(value => 
         (value.id === post.id)
           ? {...post}

@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchOnePost } from '../../../actions/posts'
+import { fetchComments } from '../../../actions/comments'
 import CommentList from '../../molecules/CommentList'
 import { deletePost } from '../../../actions/posts'
 import { Link } from 'react-router-dom'
 
 class PostDetail extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchOnePost(this.props.match.params.id))
+    //this.props.dispatch(fetchOnePost(this.props.match.params.id))
+    this.props.dispatch(fetchComments(this.props.match.params.id))
   }
 
   render() {
-    const post = this.props.posts[0]
+    const post = this.props.posts[0] || {}
     return (
       <div>
         <Link to='/'>Home</Link>
@@ -23,9 +25,9 @@ class PostDetail extends Component {
           <p>{post.timestamp}</p>
           <p>{post.voteScore}</p>
         </div>
-        <Link to={`edit/${post.id}`}>Edit Post</Link>
+        <Link to={`/edit/${post.id}`}>Edit Post</Link>
         <p onClick={() => this.props.dispatch(deletePost(post.id))}>Delete Post</p>
-        <CommentList comments={this.props.comments} postId={post.id} />
+        <CommentList comments={this.props.comments || []} postId={post.id} />
       </div>
     )
   }
