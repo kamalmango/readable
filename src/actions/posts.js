@@ -27,7 +27,6 @@ export const postVote = (id, vote) => dispatch => (
   api
     .postVote(id, vote)
     .then(response => {
-      console.warn(vote)
       if (vote.option === 'upVote') {
         dispatch(addToPostVotescore(id))
       } else {

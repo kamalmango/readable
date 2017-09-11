@@ -57,3 +57,46 @@ export function postVote(id, vote) {
     body: JSON.stringify(vote)
   })
 }
+
+export function postComment(values) {
+  return fetch(`${api}comments`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'whatever-you-want',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(values)
+  })
+}
+
+export function deleteComment(id) {
+  return fetch(`${api}comments/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'whatever-you-want'
+    }
+  })
+}
+
+export function commentVote(id, vote) {
+  return fetch(`${api}comments/${id}`, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'whatever-you-want',
+      'Content-Type': 'application/json'
+    }, 
+    body: JSON.stringify(vote)
+  })
+}
+
+export function putComment(id, values) {
+  return fetch(`${api}comments/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': 'whatever-you-want',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(values)
+  })
+}
+

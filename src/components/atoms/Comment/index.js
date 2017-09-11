@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToCommentVotescore, subtractFromCommentVotescore } from '../../../actions/comments'
+import { addToCommentVotescore, subtractFromCommentVotescore, deleteComment, commentVote } from '../../../actions/comments'
+import { openEditModal, closeEditModal } from '../../../actions/editModal'
 
 class Comment extends Component {
   render() {
@@ -12,9 +13,11 @@ class Comment extends Component {
         <p>{comment.timestamp}</p>
         <div>
           <p>vote score: {comment.voteScore}</p>
-          <p onClick={() => this.props.dispatch(addToCommentVotescore(comment.id, postId))}>+</p>
-          <p onClick={() => this.props.dispatch(subtractFromCommentVotescore(comment.id, postId))}>-</p>
+          <p onClick={() => this.props.dispatch(commentVote(comment.id, postId, {option: 'upVote'}))}>+</p>
+          <p onClick={() => this.props.dispatch(commentVote(comment.id, postId, {option: 'downVote'}))}>-</p>
         </div>
+        <p onClick={() => this.props.dispatch(openEditModal(comment.id))}>Edit Comment</p>
+        <p onClick={() => this.props.dispatch(deleteComment(comment.id, postId))}>Delete Comment</p>
       </div>
     )
   }

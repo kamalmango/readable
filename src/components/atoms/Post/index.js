@@ -4,20 +4,6 @@ import { addToPostVotescore, subtractFromPostVotescore, postVote } from '../../.
 import { fetchComments } from '../../../actions/comments'
 import { Link } from 'react-router-dom'
 
-// const Post = (props) => (
-//   <li>
-//     <div>
-//       <h3>{props.post.title}</h3>
-//       <p>{props.post.body}</p>
-//     </div>
-//     <div>
-//       <p>vote score: {props.post.voteScore}</p>
-//       <p onClick={() => props.dispatch(addToPostVotescore(props.post.id))}>+</p>
-//       <p onClick={() => props.dispatch(subractFromPostVotescore(props.post.id))}>-</p>
-//     </div>
-//   </li>
-// )
-
 class Post extends Component {
   render() {
     const { post, comments } = this.props
