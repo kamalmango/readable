@@ -10,8 +10,7 @@ class Default extends Component {
 
   render() {
     return (
-      <div className='app'>
-        <CategoryList categories={this.props.categories} />
+      <div>
         <PostList posts={this.props.posts} />
         <div>
           <Link to='/create'>Add a new post</Link>
@@ -21,9 +20,8 @@ class Default extends Component {
   }
 }
 
-function mapStateToProps({ categories, posts }) {
+function mapStateToProps({ posts }) {
   return {
-    categories, 
     posts
   }
 }

@@ -8,7 +8,6 @@ class Category extends Component {
     return (
       <div>
         <h3>{this.props.match.params.id}</h3>
-        <CategoryList categories={this.props.categories} />
         <div>
           <PostList posts={this.props.posts} />
         </div>

@@ -1,0 +1,16 @@
+.post {
+  margin-bottom: 50px;
+}
+
+.postInfo {
+  display: flex;
+  font-size: 15px;
+}
+
+.voteScoreNum {
+  margin-left: 5px;
+}
+
+.postBody {
+  margin: 0;
+}

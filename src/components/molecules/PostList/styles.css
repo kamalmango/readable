@@ -1,0 +1,12 @@
+.vote {
+  display: flex;
+  font-size: 15px;
+}
+
+.voteScore {
+  margin-left: 10px;
+}
+
+.timeStamp {
+  margin-left: 4px;
+}
