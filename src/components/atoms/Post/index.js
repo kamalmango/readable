@@ -8,6 +8,7 @@ import './styles.css'
 class Post extends Component {
   render() {
     const { post, comments } = this.props
+    console.warn('comments ', comments)
     return (
       <div className='post'>
         <div className='postMain'>
@@ -17,8 +18,8 @@ class Post extends Component {
         <div className='postInfo'>
           <p className='commentNumber'>{comments[post.id] && comments[post.id].length} comments |</p>
           <p className='voteScoreNum'>vote score: {post.voteScore}</p>
-          <p className='postPlus' onClick={() => this.props.dispatch(postVote(post.id, {option: 'upVote'}))}>+</p>
           <p className='postMinus' onClick={() => this.props.dispatch(postVote(post.id, {option: 'downVote'}))}>-</p>
+          <p className='postPlus' onClick={() => this.props.dispatch(postVote(post.id, {option: 'upVote'}))}>+</p>
         </div>
       </div>
     )

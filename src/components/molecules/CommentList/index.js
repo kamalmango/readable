@@ -7,6 +7,7 @@ import { changeCommentsOrder, postComment, putComment } from '../../../actions/c
 import { openModal, closeModal } from '../../../actions/Modal'
 import { openEditModal, closeEditModal } from '../../../actions/editModal'
 import uuidv4 from 'uuid/v4'
+import './styles.css'
 
 class CommentList extends Component {
   submit = values => {
@@ -26,16 +27,17 @@ class CommentList extends Component {
   render() {
     return (
       <div>
-        <h3>Comments</h3>
-        <div>
-          <p onClick={() => this.props.dispatch(changeCommentsOrder('voteScore', this.props.postId))}>VoteScore</p>
-          <p onClick={() => this.props.dispatch(changeCommentsOrder('timestamp', this.props.postId))}>timestamp</p>
+        <h3 className='commentsTitle'>Comments</h3>
+        <div className='commentVote'>
+          <p>Order comments by: </p>
+          <p className='commentScore' onClick={() => this.props.dispatch(changeCommentsOrder('voteScore', this.props.postId))}>VoteScore |</p>
+          <p className='commentTime' onClick={() => this.props.dispatch(changeCommentsOrder('timestamp', this.props.postId))}>timestamp</p>
         </div>
-        <ul>
+        <div>
           {this.props.comments.map(comment => (
             !comment.deleted && <Comment comment={comment} key={comment.id} postId={this.props.postId} />
           ))}
-        </ul>
+        </div>
         <p onClick={() => this.props.dispatch(openModal())}>Add a Comment</p>
         {this.props.modal && <CommentForm onSubmit={this.submit} />}
         {this.props.editModal.open && <EditCommentForm onSubmit={this.submitEdit} />}

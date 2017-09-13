@@ -5,6 +5,7 @@ import { fetchComments } from '../../../actions/comments'
 import CommentList from '../../molecules/CommentList'
 import { deletePost } from '../../../actions/posts'
 import { Link } from 'react-router-dom'
+import './styles.css'
 
 class PostDetail extends Component {
   componentDidMount() {
@@ -16,17 +17,19 @@ class PostDetail extends Component {
     const post = this.props.posts[0] || {}
     return (
       <div>
-        <Link to='/'>Home</Link>
-        <h1>Post Details</h1>
         <div>
           <h3>{post.title}</h3>
-          <p>{post.body}</p>
-          <p>{post.author}</p>
-          <p>{post.timestamp}</p>
-          <p>{post.voteScore}</p>
+          <p className='postDetailBody'>{post.body}</p>
+          <div className='postDetailInfo'>
+            <p className='postDetailAuthor'>Author: {post.author} |</p>
+            <p className='postDetailDate'>Posted on: {post.timestamp} |</p>
+            <p className='postDetailScore'>vote score: {post.voteScore}</p>
+          </div>
         </div>
-        <Link to={`/edit/${post.id}`}>Edit Post</Link>
-        <p onClick={() => this.props.dispatch(deletePost(post.id))}>Delete Post</p>
+        <div className='postOps'>
+          <Link className='postDetailEdit' to={`/edit/${post.id}`}><p className='editPost'>Edit Post <span className='dash'>|</span></p></Link>
+          <p className='postDetailDelete' onClick={() => this.props.dispatch(deletePost(post.id))}>Delete Post</p>
+        </div>
         <CommentList comments={this.props.comments || []} postId={post.id} />
       </div>
     )

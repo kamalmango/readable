@@ -1,0 +1,39 @@
+.postDetailInfo {
+  display: flex;
+  font-size: 15px;
+}
+
+.postDetailDate {
+  margin-left: 10px;
+}
+
+.postDetailScore {
+  margin-left: 10px;
+}
+
+.postDetailBody {
+  margin: 0;
+}
+
+.postOps {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.postDetailDelete {
+  margin-left: 5px;
+  color: red;
+  margin-top: 0;
+}
+
+.postDetailEdit {
+  color: blue;
+}
+
+.dash {
+  color: black;
+}
+
+.editPost {
+  margin: 0;
+}

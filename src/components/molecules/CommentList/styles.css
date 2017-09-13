@@ -1,0 +1,17 @@
+.commentVote {
+  display: flex;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.commentScore {
+  margin-left: 10px;
+}
+
+.commentTime {
+  margin-left: 4px;
+}
+
+.commentsTitle {
+  margin: 0;
+}

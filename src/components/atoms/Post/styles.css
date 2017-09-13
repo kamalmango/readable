@@ -14,3 +14,13 @@
 .postBody {
   margin: 0;
 }
+
+.postMinus {
+  margin-left: 10px;
+  color: red;
+}
+
+.postPlus {
+  margin-left: 10px;
+  color: green;
+}

@@ -1,0 +1,43 @@
+.comments {
+  margin-bottom: 50px;
+}
+
+.commentsInfo {
+  display: flex;
+  font-size: 15px;
+}
+
+.commentScore {
+  margin-left: 10px;
+}
+
+.commentDate {
+  margin-left: 10px;
+}
+
+.commentMinus {
+  margin-left: 10px;
+  color: red;
+}
+
+.commentPlus {
+  margin-left: 10px;
+  color: green;
+}
+
+.commentOps {
+  display: flex;
+}
+
+.commentEdit {
+  margin: 0;
+}
+
+.commentDelete {
+  margin-left: 5px;
+  margin-top: 0;
+}
+
+.commentBody {
+  margin: 0;
+}
