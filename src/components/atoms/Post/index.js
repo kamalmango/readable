@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom'
 import './styles.css'
 
 class Post extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchComments(this.props.post.id))
+  }
+
   render() {
     const { post, comments } = this.props
     console.warn('comments ', comments)
