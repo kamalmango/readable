@@ -43,14 +43,14 @@ export const putPost = (id, values) => dispatch => (
 )
 
 export const deletePost = id => dispatch => (
-  api.
-    deletePost(id)
+  api
+    .deletePost(id)
     .then(response => dispatch(deletePostAction(id)))
 )
 
 export const fetchOnePost = id => dispatch => (
-  api.
-    fetchOnePost(id)
+  api
+    .fetchOnePost(id)
     .then(response => response.json())
     .then(post => dispatch(getPost(post)))
 )

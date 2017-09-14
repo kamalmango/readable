@@ -38,11 +38,7 @@ function posts(state = [], action) {
           : post
       )
     case GET_POST : 
-      return state.map(value => 
-        (value.id === post.id)
-          ? {...post}
-          : value
-      )
+      return [post]
     case UPDATE_POST : 
       return state.map(value => 
         (value.id === post.id)

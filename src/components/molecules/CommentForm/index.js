@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import Modal from 'react-modal'
-import { openModal, closeModal } from '../../../actions/Modal'
+import { closeModal } from '../../../actions/Modal'
 
 let CommentForm = props => {
-  const { handleSubmit, comment } = props
+  const { handleSubmit } = props
   return (
     <Modal
       isOpen={true}

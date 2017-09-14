@@ -11,7 +11,7 @@ import './styles.css'
 
 class PostDetail extends Component {
   componentDidMount() {
-    //this.props.dispatch(fetchOnePost(this.props.match.params.id))
+    this.props.dispatch(fetchOnePost(this.props.match.params.id))
     this.props.dispatch(fetchComments(this.props.match.params.id))
   }
 
@@ -40,7 +40,7 @@ class PostDetail extends Component {
 
 function mapStateToProps({ posts, comments }, props) {
   return {
-    posts: posts.filter(post => post.id === props.match.params.id),
+    posts,
     comments: comments[props.match.params.id]
   }
 }

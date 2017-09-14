@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addToPostVotescore, subtractFromPostVotescore, postVote } from '../../../actions/posts'
+import { postVote } from '../../../actions/posts'
 import { fetchComments } from '../../../actions/comments'
 import { Link } from 'react-router-dom'
 import './styles.css'
@@ -12,7 +12,6 @@ class Post extends Component {
 
   render() {
     const { post, comments } = this.props
-    console.warn('comments ', comments)
     return (
       <div className='post'>
         <div className='postMain'>

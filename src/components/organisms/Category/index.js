@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PostList from '../../molecules/PostList'
 import { connect } from 'react-redux'
-import CategoryList from '../../molecules/CategoryList'
 
 class Category extends Component {
   render() {

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PostForm from '../../molecules/PostForm'
-import * as api from '../../../utils/api'
 import { postPost, putPost } from '../../../actions/posts'
 import uuidv4 from 'uuid/v4'
 import { Link } from 'react-router-dom'

@@ -1,17 +1,26 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { fetchCategories } from '../../../actions/categories'
 import './styles.css'
 
-const CategoryList = (props) => (
-  <div className='categories'>
-    {props.categories.map(item => (
-        <h3 className='category' key={item.name}>
-          <Link to={`/category/${item.path}`}>{item.name}</Link>
-        </h3>
-    ))}
-  </div>
-)
+class CategoryList extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchCategories())
+  }
+
+  render() {
+    return (
+       <div className='categories'>
+        {this.props.categories.map(item => (
+            <h3 className='category' key={item.name}>
+              <Link to={`/category/${item.path}`}>{item.name}</Link>
+            </h3>
+        ))}
+      </div>
+    )
+  }
+}
 
 function mapStateToProps({ categories }) {
   return {
