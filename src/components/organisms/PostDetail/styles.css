@@ -21,17 +21,19 @@
 }
 
 .postDetailDelete {
-  margin-left: 5px;
-  color: red;
+  margin-left: 10px;
+  /*color: red;*/
   margin-top: 0;
 }
 
 .postDetailEdit {
-  color: blue;
+  /*color: blue;*/
+  margin-right: 10px;
 }
 
 .dash {
   color: black;
+  margin-left: 5px;
 }
 
 .editPost {

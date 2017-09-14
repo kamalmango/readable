@@ -5,6 +5,8 @@ import { fetchComments } from '../../../actions/comments'
 import CommentList from '../../molecules/CommentList'
 import { deletePost } from '../../../actions/posts'
 import { Link } from 'react-router-dom'
+import EditIcon from 'react-icons/lib/md/edit'
+import DeleteIcon from 'react-icons/lib/md/delete'
 import './styles.css'
 
 class PostDetail extends Component {
@@ -27,8 +29,8 @@ class PostDetail extends Component {
           </div>
         </div>
         <div className='postOps'>
-          <Link className='postDetailEdit' to={`/edit/${post.id}`}><p className='editPost'>Edit Post <span className='dash'>|</span></p></Link>
-          <p className='postDetailDelete' onClick={() => this.props.dispatch(deletePost(post.id))}>Delete Post</p>
+          <Link className='postDetailEdit' to={`/edit/${post.id}`}><p className='editPost'><EditIcon /></p></Link>
+          <p className='postDetailDelete' onClick={() => this.props.dispatch(deletePost(post.id))}><DeleteIcon /></p>
         </div>
         <CommentList comments={this.props.comments || []} postId={post.id} />
       </div>

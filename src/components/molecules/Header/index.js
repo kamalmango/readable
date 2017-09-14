@@ -8,7 +8,7 @@ class Header extends Component {
   render() {
     return (
       <div className='header'>
-        <Link className="brand" to='/'><h3>readables</h3></Link>
+        <Link className="brand" to='/'><h3>posts</h3></Link>
         <CategoryList />
       </div>
     )

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addToCommentVotescore, subtractFromCommentVotescore, deleteComment, commentVote } from '../../../actions/comments'
 import { openEditModal, closeEditModal } from '../../../actions/editModal'
+import EditIcon from 'react-icons/lib/md/edit'
+import DeleteIcon from 'react-icons/lib/md/delete'
 import './styles.css'
 
 class Comment extends Component {
@@ -18,8 +20,8 @@ class Comment extends Component {
           <p className='commentMinus' onClick={() => this.props.dispatch(commentVote(comment.id, postId, {option: 'downVote'}))}>-</p>
         </div>
         <div className='commentOps'>
-          <p className='commentEdit' onClick={() => this.props.dispatch(openEditModal(comment.id))}>Edit Comment |</p>
-          <p className='commentDelete' onClick={() => this.props.dispatch(deleteComment(comment.id, postId))}>Delete Comment</p>
+          <p className='commentEdit' onClick={() => this.props.dispatch(openEditModal(comment.id))}><EditIcon /> |</p>
+          <p className='commentDelete' onClick={() => this.props.dispatch(deleteComment(comment.id, postId))}><DeleteIcon /></p>
         </div>
       </div>
     )

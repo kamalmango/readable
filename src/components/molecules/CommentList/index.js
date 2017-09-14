@@ -7,6 +7,7 @@ import { changeCommentsOrder, postComment, putComment } from '../../../actions/c
 import { openModal, closeModal } from '../../../actions/Modal'
 import { openEditModal, closeEditModal } from '../../../actions/editModal'
 import uuidv4 from 'uuid/v4'
+import AddIcon from 'react-icons/lib/md/add'
 import './styles.css'
 
 class CommentList extends Component {
@@ -38,7 +39,7 @@ class CommentList extends Component {
             !comment.deleted && <Comment comment={comment} key={comment.id} postId={this.props.postId} />
           ))}
         </div>
-        <p onClick={() => this.props.dispatch(openModal())}>Add a Comment</p>
+        <p onClick={() => this.props.dispatch(openModal())}><AddIcon size={50}/></p>
         {this.props.modal && <CommentForm onSubmit={this.submit} />}
         {this.props.editModal.open && <EditCommentForm onSubmit={this.submitEdit} />}
       </div>

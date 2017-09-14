@@ -5,6 +5,7 @@ import { fetchPosts } from '../../../actions/posts'
 import CategoryList from '../../molecules/CategoryList'
 import PostList from '../../molecules/PostList'
 import { Link } from 'react-router-dom'
+import AddIcon from 'react-icons/lib/md/add'
 
 class Default extends Component {
 
@@ -13,7 +14,7 @@ class Default extends Component {
       <div>
         <PostList posts={this.props.posts} />
         <div>
-          <Link to='/create'>Add a new post</Link>
+          <Link to='/create'><AddIcon size={50}/></Link>
         </div>
       </div>
     )
