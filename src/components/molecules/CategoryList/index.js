@@ -22,7 +22,7 @@ class CategoryList extends Component {
   }
 }
 
-function mapStateToProps({ categories }) {
+function mapStateToProps({ categories }, props) {
   return {
     categories
   }

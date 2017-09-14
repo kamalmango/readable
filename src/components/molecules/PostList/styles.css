@@ -5,8 +5,21 @@
 
 .voteScore {
   margin-left: 10px;
+  color: grey;
+  font-weight: 100;
 }
 
 .timeStamp {
   margin-left: 4px;
+  color: grey;
+  font-weight: 100;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.line {
+  font-weight: normal;
+  color: black;
 }

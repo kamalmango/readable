@@ -1,9 +1,19 @@
 .categories {
   display: flex;
-  /*width: 50%;
-  margin: 0 auto;*/
 }
 
 .category {
   margin-left: 20px;
+}
+
+.react {
+  color: navy;
+}
+
+.redux {
+  color: navy;
+}
+
+.udacity {
+  color: navy;
 }

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import Modal from 'react-modal'
 import { closeEditModal } from '../../../actions/editModal'
+import MdClose from 'react-icons/lib/md/close'
+import './styles.css'
 
 let EditCommentForm = props => {
   const { handleSubmit } = props
@@ -11,14 +13,14 @@ let EditCommentForm = props => {
       isOpen={true}
       contentLabel="Modal"
     >
+      <p className='closeEdit' onClick={() => props.dispatch(closeEditModal())}><MdClose /></p>
       <form onSubmit={ handleSubmit }>
-        <div>
+        <div className='editCommentField'>
           <label htmlFor="body">Body</label>
-          <Field name="body" component="input" type="text" placeholder />
+          <Field name="body" component="input" type="text" />
         </div>
         <button type="submit">Submit</button>
       </form>
-      <p onClick={() => props.dispatch(closeEditModal())}>Close Modal</p>
     </Modal>
   )
 }

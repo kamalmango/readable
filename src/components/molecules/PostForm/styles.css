@@ -1,0 +1,6 @@
+.field {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}

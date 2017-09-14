@@ -1,0 +1,10 @@
+.commentField {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.close {
+  text-align: right;
+}

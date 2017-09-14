@@ -1,25 +1,30 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import './styles.css'
 
 let PostForm = props => {
   const { handleSubmit, post } = props
   return (
     <form onSubmit={ handleSubmit }>
-      <div>
+      <div className='field'>
         <label htmlFor="owner">Owner</label>
         <Field name="owner" component="input" type="text" placeholder={post.author} />
       </div>
-      <div>
+      <div className='field'>
         <label htmlFor="title">Title</label>
         <Field name="title" component="input" type="text" placeholder={post.title} />
       </div>
-      <div>
+      <div className='field'>
         <label htmlFor="body">Body</label>
-        <Field name="body" component="input" type="text" placeholder={post.body} />
+        <Field name="body" component="textarea" type="text" placeholder={post.body} />
       </div>
-      <div>
+      <div className='field'>
         <label htmlFor="category">Category</label>
-        <Field name="category" component="input" type="text" placeholder={post.category} />
+        <Field id='test' name="category" component="select" type="text">
+          <option value='React'>React</option>
+          <option value='Redux'>Redux</option>
+          <option value='Udacity'>Udacity</option>
+        </Field>
       </div>
       <button type="submit">Submit</button>
     </form>

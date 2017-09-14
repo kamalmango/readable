@@ -3,26 +3,28 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import Modal from 'react-modal'
 import { closeModal } from '../../../actions/Modal'
+import MdClose from 'react-icons/lib/md/close'
+import './styles.css'
 
 let CommentForm = props => {
   const { handleSubmit } = props
   return (
     <Modal
       isOpen={true}
-      contentLabel="Modal"
+      contentLabel='Modal'
     >
+      <p className='close' onClick={() => props.dispatch(closeModal())}><MdClose /></p>
       <form onSubmit={ handleSubmit }>
-        <div>
+        <div className='commentField'>
           <label htmlFor="owner">Author</label>
-          <Field name="author" component="input" type="text" placeholder />
+          <Field name="author" component="input" type="text" />
         </div>
-        <div>
+        <div className='commentField'>
           <label htmlFor="body">Body</label>
-          <Field name="body" component="input" type="text" placeholder />
+          <Field name="body" component="textarea" type="text" />
         </div>
         <button type="submit">Submit</button>
       </form>
-      <p onClick={() => props.dispatch(closeModal())}>Close Modal</p>
     </Modal>
   )
 }

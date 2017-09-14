@@ -75,10 +75,23 @@ export const addPost = post => ({
   post
 })
 
-export const changePostsOrder = order => ({
-	type: CHANGE_POSTS_ORDER,
-	order
-})
+// export const changePostsOrder = order => ({
+// 	type: CHANGE_POSTS_ORDER,
+// 	order
+// })
+export const changePostsOrder = order => {
+  if (order === 'voteScore') {
+    document.getElementById(order).classList.add('bold')
+    document.getElementById('timestamp').classList.remove('bold')
+  } else {
+    document.getElementById(order).classList.add('bold')
+    document.getElementById('voteScore').classList.remove('bold')
+  }
+  return {
+    type: CHANGE_POSTS_ORDER,
+    order
+  }
+}
 
 export const addToPostVotescore = id => ({
 	type: ADD_TO_POST_VOTESCORE,

@@ -6,6 +6,18 @@ import uuidv4 from 'uuid/v4'
 import { Link } from 'react-router-dom'
 
 class CreatePost extends Component {
+  componentDidMount() {
+    if (this.props.match.params.id && this.props.posts[0]) {
+      if (this.props.posts[0].category === 'react') {
+        document.getElementById('test').selectedIndex = '0'
+      } else if (this.props.posts[0].category === 'redux') {
+        document.getElementById('test').selectedIndex = '1'
+      } else {
+        document.getElementById('test').selectedIndex = '2'
+      }
+    }
+  }
+
   submit = values => {
     if (this.props.match.params.id) {
       this.props.dispatch(putPost(this.props.match.params.id, {title: values.title, body: values.body}))
@@ -19,7 +31,6 @@ class CreatePost extends Component {
   render() {
     return (
       <div>
-        <Link to='/'>Home</Link>
         <PostForm onSubmit={this.submit} post={this.props.posts[0] || {}} />
       </div>
     )
