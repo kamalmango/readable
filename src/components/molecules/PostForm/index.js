@@ -1,5 +1,6 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 let PostForm = props => {
@@ -8,7 +9,7 @@ let PostForm = props => {
     <form onSubmit={ handleSubmit }>
       <div className='field'>
         <label htmlFor="owner">Owner</label>
-        <Field name="owner" component="input" type="text" placeholder={post.author} />
+        <Field name="author" component="input" type="text" placeholder={post.author} />
       </div>
       <div className='field'>
         <label htmlFor="title">Title</label>
@@ -21,9 +22,10 @@ let PostForm = props => {
       <div className='field'>
         <label htmlFor="category">Category</label>
         <Field id='test' name="category" component="select" type="text">
-          <option value='React'>React</option>
-          <option value='Redux'>Redux</option>
-          <option value='Udacity'>Udacity</option>
+          <option></option>
+          <option value='react'>React</option>
+          <option value='redux'>Redux</option>
+          <option value='udacity'>Udacity</option>
         </Field>
       </div>
       <button type="submit">Submit</button>

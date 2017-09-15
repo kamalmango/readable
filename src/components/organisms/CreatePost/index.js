@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import PostForm from '../../molecules/PostForm'
 import { postPost, putPost } from '../../../actions/posts'
 import uuidv4 from 'uuid/v4'
-import { Link } from 'react-router-dom'
 
 class CreatePost extends Component {
   componentDidMount() {
@@ -20,8 +19,10 @@ class CreatePost extends Component {
 
   submit = values => {
     if (this.props.match.params.id) {
+      this.props.history.push(`/post/${this.props.match.params.id}`)
       this.props.dispatch(putPost(this.props.match.params.id, {title: values.title, body: values.body}))
     } else { 
+      this.props.history.push('/')
       values.timestamp = Date.now()
       values.id = uuidv4()
       this.props.dispatch(postPost(values))

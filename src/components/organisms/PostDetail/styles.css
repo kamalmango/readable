@@ -1,6 +1,20 @@
+.postDetail {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.postDetailTitle {
+  font-weight: 100;
+  font-size: 2em;
+  margin: 0;
+  margin-bottom: 15px;
+  color: grey;
+}
+
 .postDetailInfo {
   display: flex;
   font-size: 15px;
+  justify-content: center;
 }
 
 .postDetailDate {
@@ -18,16 +32,15 @@
 .postOps {
   display: flex;
   margin-bottom: 50px;
+  justify-content: center;
 }
 
 .postDetailDelete {
   margin-left: 10px;
-  /*color: red;*/
   margin-top: 0;
 }
 
 .postDetailEdit {
-  /*color: blue;*/
   margin-right: 10px;
 }
 

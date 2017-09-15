@@ -31,8 +31,8 @@ class CommentList extends Component {
         <h3 className='commentsTitle'>Comments</h3>
         <div className='commentVote'>
           <p>Order comments by: </p>
-          <p className='commentScore' onClick={() => this.props.dispatch(changeCommentsOrder('voteScore', this.props.postId))}>VoteScore |</p>
-          <p className='commentTime' onClick={() => this.props.dispatch(changeCommentsOrder('timestamp', this.props.postId))}>timestamp</p>
+          <p id='commentScore' className='commentScore commentBold' onClick={() => this.props.dispatch(changeCommentsOrder('voteScore', this.props.postId))}>VoteScore <span className='commentDash'>|</span></p>
+          <p id='commentTime' className='commentTime' onClick={() => this.props.dispatch(changeCommentsOrder('timestamp', this.props.postId))}>timestamp</p>
         </div>
         <div>
           {this.props.comments.map(comment => (

@@ -19,18 +19,18 @@ class PostDetail extends Component {
     const post = this.props.posts[0] || {}
     return (
       <div>
-        <div>
-          <h3>{post.title}</h3>
+        <div className='postDetail'>
+          <h1 className='postDetailTitle'>{post.title}</h1>
           <p className='postDetailBody'>{post.body}</p>
           <div className='postDetailInfo'>
             <p className='postDetailAuthor'>Author: {post.author} |</p>
-            <p className='postDetailDate'>Posted on: {post.timestamp} |</p>
+            <p className='postDetailDate'>Posted on: {Date(post.timestamp).toString().split(' ').slice(0,3).join(' ')} |</p>
             <p className='postDetailScore'>vote score: {post.voteScore}</p>
           </div>
         </div>
         <div className='postOps'>
           <Link className='postDetailEdit' to={`/edit/${post.id}`}><p className='editPost'><EditIcon /></p></Link>
-          <p className='postDetailDelete' onClick={() => this.props.dispatch(deletePost(post.id))}><DeleteIcon /></p>
+          <Link className='postDetailDelete' to='/' onClick={() => this.props.dispatch(deletePost(post.id))}><DeleteIcon /></Link>
         </div>
         <CommentList comments={this.props.comments || []} postId={post.id} />
       </div>

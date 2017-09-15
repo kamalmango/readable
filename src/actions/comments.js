@@ -71,11 +71,20 @@ export const subtractFromCommentVotescore = (commentId, postId) => ({
   postId
 })
 
-export const changeCommentsOrder = (order, postId) => ({
-  type: CHANGE_COMMENTS_ORDER,
-  order,
-  postId
-})
+export const changeCommentsOrder = (order, postId) => {  
+  if (order === 'voteScore') {
+    document.getElementById('commentScore').classList.add('commentBold')
+    document.getElementById('commentTime').classList.remove('commentBold')
+  } else {
+    document.getElementById('commentTime').classList.add('commentBold')
+    document.getElementById('commentScore').classList.remove('commentBold')
+  }
+  return {
+    type: CHANGE_COMMENTS_ORDER,
+    order,
+    postId
+  }
+}
 
 export const removeComment = (commentId, postId) => ({
   type: DELETE_COMMENT,

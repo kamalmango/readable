@@ -5,6 +5,7 @@
 .postInfo {
   display: flex;
   font-size: 15px;
+  color: grey;
 }
 
 .voteScoreNum {
@@ -17,10 +18,21 @@
 
 .postMinus {
   margin-left: 10px;
-  color: red;
+  margin-right: 10px;
 }
 
 .postPlus {
   margin-left: 10px;
-  color: green;
+}
+
+.lineDash {
+  color: black;
+}
+
+.scoreNumber {
+  color: black;
+}
+
+.commentsNumber {
+  color: black;
 }

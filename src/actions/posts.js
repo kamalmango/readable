@@ -75,10 +75,6 @@ export const addPost = post => ({
   post
 })
 
-// export const changePostsOrder = order => ({
-// 	type: CHANGE_POSTS_ORDER,
-// 	order
-// })
 export const changePostsOrder = order => {
   if (order === 'voteScore') {
     document.getElementById(order).classList.add('bold')

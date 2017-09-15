@@ -5,9 +5,10 @@
 .commentsInfo {
   display: flex;
   font-size: 15px;
+  color: grey;
 }
 
-.commentScore {
+.commentVoteScore {
   margin-left: 10px;
 }
 
@@ -17,12 +18,13 @@
 
 .commentMinus {
   margin-left: 10px;
-  color: red;
+  margin-right: 10px;
+  color: black;
 }
 
 .commentPlus {
   margin-left: 10px;
-  color: green;
+  color: black;
 }
 
 .commentOps {
@@ -40,4 +42,8 @@
 
 .commentBody {
   margin: 0;
+}
+
+.commentInfoLine {
+  color: black;
 }
