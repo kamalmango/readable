@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import Modal from 'react-modal'
-import { closeModal } from '../../../actions/Modal'
+import { closeModal } from '../../../actions/modal'
 import MdClose from 'react-icons/lib/md/close'
 import './styles.css'
 

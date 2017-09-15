@@ -3,7 +3,7 @@ import { reducer as formReducer } from 'redux-form'
 import categories from './categories'
 import posts from './posts'
 import comments from './comments'
-import modal from './Modal'
+import modal from './modal'
 import editModal from './editModal'
 
 export default combineReducers({

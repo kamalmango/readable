@@ -1,4 +1,4 @@
-import { OPEN_MODAL, CLOSE_MODAL } from '../actions/Modal'
+import { OPEN_MODAL, CLOSE_MODAL } from '../actions/modal'
 
 function modal(state = false, action) {
   switch (action.type) {

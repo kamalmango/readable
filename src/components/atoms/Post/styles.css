@@ -36,3 +36,15 @@
 .commentsNumber {
   color: black;
 }
+
+.postInfoAuthor {
+  margin-right: 10px;
+}
+
+.postOperations {
+  display: flex;
+}
+
+.postEdit {
+  margin-right: 10px;
+}
