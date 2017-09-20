@@ -15,14 +15,14 @@ class CommentList extends Component {
     values.timestamp = Date.now()
     values.id = uuidv4()
     values.parentId = this.props.postId
-    this.props.dispatch(postComment(values))
-    this.props.dispatch(closeModal())
+    this.props.postComment(values)
+    this.props.closeModal()
   }
 
   submitEdit = values => {
     values.timestamp = Date.now()
-    this.props.dispatch(putComment(this.props.editModal.commentId, this.props.postId, values))
-    this.props.dispatch(closeEditModal())
+    this.props.putComment(this.props.editModal.commentId, this.props.postId, values)
+    this.props.closeEditModal()
   }
 
   render() {
@@ -31,15 +31,15 @@ class CommentList extends Component {
         <h3 className='commentsTitle'>Comments</h3>
         <div className='commentVote'>
           <p>Order comments by: </p>
-          <p id='commentScore' className='commentScore commentBold' onClick={() => this.props.dispatch(changeCommentsOrder('voteScore', this.props.postId))}>VoteScore <span className='commentDash'>|</span></p>
-          <p id='commentTime' className='commentTime' onClick={() => this.props.dispatch(changeCommentsOrder('timestamp', this.props.postId))}>timestamp</p>
+          <p id='commentScore' className='commentScore commentBold' onClick={() => this.props.changeCommentsOrder('voteScore', this.props.postId)}>VoteScore <span className='commentDash'>|</span></p>
+          <p id='commentTime' className='commentTime' onClick={() => this.props.changeCommentsOrder('timestamp', this.props.postId)}>timestamp</p>
         </div>
         <div>
           {this.props.comments.map(comment => (
             !comment.deleted && <Comment comment={comment} key={comment.id} postId={this.props.postId} />
           ))}
         </div>
-        <p onClick={() => this.props.dispatch(openModal())}><AddIcon size={50}/></p>
+        <p onClick={() => this.props.openModal()}><AddIcon size={50}/></p>
         {this.props.modal && <CommentForm onSubmit={this.submit} />}
         {this.props.editModal.open && <EditCommentForm onSubmit={this.submitEdit} />}
       </div>
@@ -54,4 +54,4 @@ function mapStateToProps({ modal, editModal }) {
   }
 }
 
-export default connect(mapStateToProps)(CommentList)
+export default connect(mapStateToProps, { changeCommentsOrder, postComment, putComment, openModal, closeModal, closeEditModal })(CommentList)

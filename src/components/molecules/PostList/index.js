@@ -8,8 +8,8 @@ const PostList = (props) => (
   <div className='posts'>
     <div className='vote'>
       <p>Order posts by: </p>
-      <p id='voteScore' className='voteScore bold' onClick={() => props.dispatch(changePostsOrder('voteScore'))}>VoteScore <span className='line'>|</span></p>
-      <p id='timestamp' className='timeStamp' onClick={() => props.dispatch(changePostsOrder('timestamp'))}>timestamp</p>
+      <p id='voteScore' className='voteScore bold' onClick={() => props.changePostsOrder('voteScore')}>VoteScore <span className='line'>|</span></p>
+      <p id='timestamp' className='timeStamp' onClick={() => props.changePostsOrder('timestamp')}>timestamp</p>
     </div>
     <div>
       {props.posts.map(post => (
@@ -19,4 +19,4 @@ const PostList = (props) => (
   </div>
 )
 
-export default connect()(PostList)
+export default connect(null, { changePostsOrder, connect })(PostList)

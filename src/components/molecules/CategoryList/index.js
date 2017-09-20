@@ -6,7 +6,7 @@ import './styles.css'
 
 class CategoryList extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchCategories())
+    this.props.fetchCategories()
   }
 
   render() {
@@ -28,4 +28,4 @@ function mapStateToProps({ categories }, props) {
   }
 }
 
-export default connect(mapStateToProps)(CategoryList)
+export default connect(mapStateToProps, { fetchCategories })(CategoryList)

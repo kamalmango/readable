@@ -20,12 +20,12 @@ class CreatePost extends Component {
   submit = values => {
     if (this.props.match.params.id) {
       this.props.history.push(`/post/${this.props.match.params.id}`)
-      this.props.dispatch(putPost(this.props.match.params.id, {title: values.title, body: values.body}))
+      this.props.putPost(this.props.match.params.id, {title: values.title, body: values.body})
     } else { 
       this.props.history.push('/')
       values.timestamp = Date.now()
       values.id = uuidv4()
-      this.props.dispatch(postPost(values))
+      this.props.postPost(values)
     }
   }
 
@@ -44,4 +44,4 @@ function mapStateToProps({ posts }, props) {
   }
 }
 
-export default connect(mapStateToProps)(CreatePost)
+export default connect(mapStateToProps, { putPost, postPost })(CreatePost)

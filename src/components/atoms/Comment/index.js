@@ -18,17 +18,17 @@ class Comment extends Component {
           <p className='commentAuthor'>author: {comment.author} <span className='commentInfoLine'>|</span></p>
           <p className='commentDate'>posted on: {Date(comment.timestamp).toString().split(' ').slice(0,3).join(' ')} <span className='commentInfoLine'>|</span></p>
           <p className='commentVoteScore'>vote score:</p>
-          <p className='commentMinus' onClick={() => this.props.dispatch(commentVote(comment.id, postId, {option: 'downVote'}))}><AngleDown size={25}/></p>
+          <p className='commentMinus' onClick={() => this.props.commentVote(comment.id, postId, {option: 'downVote'})}><AngleDown size={25}/></p>
           <p>{comment.voteScore}</p>
-          <p className='commentPlus' onClick={() => this.props.dispatch(commentVote(comment.id, postId, {option: 'upVote'}))}><AngleUp size={25}/></p>
+          <p className='commentPlus' onClick={() => this.props.commentVote(comment.id, postId, {option: 'upVote'})}><AngleUp size={25}/></p>
         </div>
         <div className='commentOps'>
-          <p className='commentEdit' onClick={() => this.props.dispatch(openEditModal(comment.id))}><EditIcon /> |</p>
-          <p className='commentDelete' onClick={() => this.props.dispatch(deleteComment(comment.id, postId))}><DeleteIcon /></p>
+          <p className='commentEdit' onClick={() => this.props.openEditModal(comment.id)}><EditIcon /> |</p>
+          <p className='commentDelete' onClick={() => this.props.deleteComment(comment.id, postId)}><DeleteIcon /></p>
         </div>
       </div>
     )
   }
 }
 
-export default connect()(Comment)
+export default connect(null, { deleteComment, commentVote, openEditModal })(Comment)

@@ -8,7 +8,7 @@ import './styles.css'
 
 class Default extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchPosts())
+    this.props.fetchPosts()
   }
   
   render() {
@@ -30,4 +30,4 @@ function mapStateToProps({ posts }) {
   }
 }
 
-export default connect(mapStateToProps)(Default)
+export default connect(mapStateToProps, { fetchPosts })(Default)

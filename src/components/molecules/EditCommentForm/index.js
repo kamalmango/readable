@@ -13,7 +13,7 @@ let EditCommentForm = props => {
       isOpen={true}
       contentLabel="Modal"
     >
-      <p className='closeEdit' onClick={() => props.dispatch(closeEditModal())}><MdClose /></p>
+      <p className='closeEdit' onClick={() => props.closeEditModal()}><MdClose /></p>
       <form onSubmit={ handleSubmit }>
         <div className='editCommentField'>
           <label htmlFor="body">Body</label>
@@ -29,4 +29,4 @@ EditCommentForm = reduxForm({
   form: 'editComment'
 })(EditCommentForm)
 
-export default connect()(EditCommentForm)
+export default connect(null, { closeEditModal })(EditCommentForm)

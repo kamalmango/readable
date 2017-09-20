@@ -8,8 +8,8 @@ import './styles.css'
 
 class PostDetail extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchOnePost(this.props.match.params.id))
-    this.props.dispatch(fetchComments(this.props.match.params.id))
+    this.props.fetchOnePost(this.props.match.params.id)
+    this.props.fetchComments(this.props.match.params.id)
   }
 
   render() {
@@ -30,4 +30,4 @@ function mapStateToProps({ posts, comments }, props) {
   }
 }
 
-export default connect(mapStateToProps)(PostDetail)
+export default connect(mapStateToProps, { fetchComments, fetchOnePost })(PostDetail)
