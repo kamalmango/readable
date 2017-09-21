@@ -41,7 +41,7 @@ class CommentList extends Component {
         </div>
         <p onClick={() => this.props.openModal()}><AddIcon size={50}/></p>
         {this.props.modal && <CommentForm onSubmit={this.submit} />}
-        {this.props.editModal.open && <EditCommentForm onSubmit={this.submitEdit} />}
+        {this.props.editModal.open && <EditCommentForm onSubmit={this.submitEdit} commentBody={this.props.editModal.commentBody} />}
       </div>
     )
   }

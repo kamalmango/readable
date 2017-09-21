@@ -7,7 +7,7 @@ import MdClose from 'react-icons/lib/md/close'
 import './styles.css'
 
 let EditCommentForm = props => {
-  const { handleSubmit } = props
+  const { handleSubmit, commentBody } = props
   return (
     <Modal
       isOpen={true}
@@ -17,7 +17,7 @@ let EditCommentForm = props => {
       <form onSubmit={ handleSubmit }>
         <div className='editCommentField'>
           <label htmlFor="body">Body</label>
-          <Field name="body" component="input" type="text" />
+          <Field name="body" component="input" type="text" placeholder={commentBody} />
         </div>
         <button type="submit">Submit</button>
       </form>

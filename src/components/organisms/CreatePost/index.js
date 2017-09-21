@@ -8,11 +8,11 @@ class CreatePost extends Component {
   componentDidMount() {
     if (this.props.match.params.id && this.props.posts[0]) {
       if (this.props.posts[0].category === 'react') {
-        document.getElementById('test').selectedIndex = '0'
+        document.getElementById('dropDown').selectedIndex = '1'
       } else if (this.props.posts[0].category === 'redux') {
-        document.getElementById('test').selectedIndex = '1'
+        document.getElementById('dropDown').selectedIndex = '2'
       } else {
-        document.getElementById('test').selectedIndex = '2'
+        document.getElementById('dropDown').selectedIndex = '3'
       }
     }
   }

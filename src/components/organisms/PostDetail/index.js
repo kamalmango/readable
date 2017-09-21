@@ -16,8 +16,14 @@ class PostDetail extends Component {
     const post = this.props.posts[0] || {}
     return (
       <div>
-        <Post post={post} detail />
-        <CommentList comments={this.props.comments || []} postId={post.id} />
+        {Object.keys(post).length > 0 ? 
+          <div>
+            <Post post={post} detail />
+            <CommentList comments={this.props.comments || []} postId={post.id} />
+          </div> :
+          <div>
+            <p>Post Not Found</p>
+          </div>}
       </div>
     )
   }

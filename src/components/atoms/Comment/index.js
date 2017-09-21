@@ -23,7 +23,7 @@ class Comment extends Component {
           <p className='commentPlus' onClick={() => this.props.commentVote(comment.id, postId, {option: 'upVote'})}><AngleUp size={25}/></p>
         </div>
         <div className='commentOps'>
-          <p className='commentEdit' onClick={() => this.props.openEditModal(comment.id)}><EditIcon /> |</p>
+          <p className='commentEdit' onClick={() => this.props.openEditModal(comment.id, comment.body)}><EditIcon /> |</p>
           <p className='commentDelete' onClick={() => this.props.deleteComment(comment.id, postId)}><DeleteIcon /></p>
         </div>
       </div>

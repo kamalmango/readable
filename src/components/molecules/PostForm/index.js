@@ -20,7 +20,7 @@ let PostForm = props => {
       </div>
       <div className='field'>
         <label htmlFor="category">Category</label>
-        <Field id='test' name="category" component="select" type="text">
+        <Field id='dropDown' name="category" component="select" type="text">
           <option></option>
           <option value='react'>React</option>
           <option value='redux'>Redux</option>
