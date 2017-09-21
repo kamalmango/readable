@@ -2,6 +2,8 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import './styles.css'
 
+const required = value => value ? undefined : 'Required'
+
 let PostForm = props => {
   const { handleSubmit, post } = props
   return (
@@ -20,7 +22,7 @@ let PostForm = props => {
       </div>
       <div className='field'>
         <label htmlFor="category">Category</label>
-        <Field id='dropDown' name="category" component="select" type="text">
+        <Field id='dropDown' name="category" component="select" type="text" validate={[required]}>
           <option></option>
           <option value='react'>React</option>
           <option value='redux'>Redux</option>
